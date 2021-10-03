@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <title>Hello, world!</title>
+  </head>
+  <body>
+
+    <video id="video" controls preload width="100%" poster="video/poster-img.jpg" onclick="this.play();">
+      <source src="video/save-water.mp4" type="video/mp4" id="video_source">
+    </video>
+
+    <ul id="playlist" class="videosList">
+        <li>
+            <a href="video/save-water.mp4" poster="video/thumb.png">
+                <div class="thumbIcon"><i class="fa fa-video-camera" aria-hidden="true"></i></div>
+            </a>
+        </li>
+        <li>
+            <a href="video/save-water.mp4" poster="video/thumb.png">
+                <div class="thumbIcon"><i class="fa fa-video-camera" aria-hidden="true"></i></div>
+            </a>
+        </li>
+    </ul>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://khaalipaper.com/js/jquery-3.2.1.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+          $("#playlist a").click(function(){
+             // alert('Now this video is going to play');
+             var video_source_link=$(this).attr("href");
+             document.getElementById("video_source").setAttribute("src",video_source_link);
+
+             var video_poster=$(this).attr("poster");
+             document.getElementById("video").setAttribute("poster",video_poster);
+
+             document.getElementById("video").load();
+             document.getElementById("video").play();
+             return false;
+          });
+        });
+    </script>
+  </body>
+</html>
